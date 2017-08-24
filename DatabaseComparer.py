@@ -105,3 +105,12 @@ if __name__ == "__main__":
     window = MyApp()
     window.show()
     sys.exit(app.exec_())
+
+# UI designed with qt designer
+# conda prompt: designer
+#
+# Exe build instructions:
+# create -n py35 python=3.5
+# activate py35
+# conda install -c acellera -n py35 pyinstaller
+# pyinstaller --onefile --windowed --icon=database_refresh.ico yourprogram.py
