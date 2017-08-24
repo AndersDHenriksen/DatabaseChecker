@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 # Hard coded path, should be input from gui later
@@ -35,7 +34,7 @@ def read_maillist(maillist_path):
     with open(maillist_path, 'rb') as f:
         maillist_list.append([word for line in f for word in str(line).split(';')])
 
-    maillist_df = pd.DataFrame(np.squeeze(maillist_list))
+    maillist_df = pd.DataFrame(maillist_list[0])
     maillist = maillist_df[0].str.extract(r'<(\w+@\w+.\w+)>', expand=False)
     return maillist
 
