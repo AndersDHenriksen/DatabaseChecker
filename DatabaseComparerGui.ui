@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Database Comparer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTextBrowser" name="textConsole">
@@ -28,15 +28,15 @@
       <x>10</x>
       <y>180</y>
       <width>781</width>
-      <height>371</height>
+      <height>391</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="clearButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>520</y>
+      <x>660</x>
+      <y>540</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -63,7 +63,7 @@
      <rect>
       <x>120</x>
       <y>60</y>
-      <width>491</width>
+      <width>451</width>
       <height>22</height>
      </rect>
     </property>
@@ -91,7 +91,7 @@
      <rect>
       <x>120</x>
       <y>90</y>
-      <width>491</width>
+      <width>451</width>
       <height>22</height>
      </rect>
     </property>
@@ -107,7 +107,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>580</x>
       <y>90</y>
       <width>101</width>
       <height>22</height>
@@ -142,7 +142,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>580</x>
       <y>120</y>
       <width>101</width>
       <height>22</height>
@@ -163,7 +163,7 @@
      <rect>
       <x>120</x>
       <y>120</y>
-      <width>491</width>
+      <width>451</width>
       <height>22</height>
      </rect>
     </property>
@@ -192,7 +192,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>580</x>
       <y>150</y>
       <width>101</width>
       <height>22</height>
@@ -213,7 +213,7 @@
      <rect>
       <x>120</x>
       <y>150</y>
-      <width>491</width>
+      <width>451</width>
       <height>22</height>
      </rect>
     </property>
@@ -244,9 +244,68 @@
      <string>Database Comparer v1.0</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="blacklistInit">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>90</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">&quot;Text-align:left&quot;</string>
+    </property>
+    <property name="text">
+     <string>Modify ignore list</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="blacklistCpr">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>120</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">&quot;Text-align:left&quot;</string>
+    </property>
+    <property name="text">
+     <string>Modify ignore list</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>loadDb</tabstop>
+  <tabstop>loadVilkar</tabstop>
+  <tabstop>loadHk</tabstop>
+  <tabstop>loadEmails</tabstop>
+  <tabstop>textConsole</tabstop>
+  <tabstop>textDb</tabstop>
+  <tabstop>textVilkar</tabstop>
+  <tabstop>textHk</tabstop>
+  <tabstop>textEmails</tabstop>
+  <tabstop>compareInit</tabstop>
+  <tabstop>compareCpr</tabstop>
+  <tabstop>compareEmails</tabstop>
+  <tabstop>clearButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

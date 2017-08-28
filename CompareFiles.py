@@ -39,31 +39,39 @@ def read_maillist(maillist_path):
     return maillist
 
 
-def compare_vilkar(database, vilkar):
+def compare_vilkar(database, vilkar, vilkar_ignore, print_out=True):
     """ Compare main database to vilkar database """
     init_db = set(database['Initialer'].dropna().str.upper())
     init_vilkar = set(vilkar['Initials'].dropna().str.upper())
-    init_onlydb = init_db.difference(init_vilkar)
-    init_onlyvilkar = init_vilkar.difference(init_db)
-    print('The following initials are only in NovoZymes database:\n' + '\n'.join(init_onlydb))
-    print('The following initials are only in Vilkaar database:\n' + '\n'.join(init_onlyvilkar))
+    init_vilkar = init_vilkar.difference(set(vilkar_ignore))
+    init_onlydb = sorted(list(init_db.difference(init_vilkar)))
+    init_onlyvilkar = sorted(list(init_vilkar.difference(init_db)))
+    if print_out:
+        print('The following initials are only in NovoZymes database:\n' + '\n'.join(init_onlydb))
+        print('The following initials are only in Vilkaar database:\n' + '\n'.join(init_onlyvilkar))
+    return init_onlydb, init_onlyvilkar
 
 
-def compare_hk(database, hk):
+def compare_hk(database, hk, hk_ignore, print_out=True):
     """ Compare main database to HK database"""
-    cpr_db = set(database['CPR-nummer'].dropna().str.zfill(10).str.replace('-', ''))  # [medlem_bool] might be needed
+    cpr_db = set(database['CPR-nummer'].dropna().str.zfill(10).str.replace('-', ''))
     cpr_hk = set(hk['CPR'].dropna().str.replace('-', ''))
-    cpr_onlyhk = cpr_hk.difference(cpr_db)
-    cpr_onlydb = cpr_db.difference(cpr_hk)
-    print('The following cpr are only in NovoZymes database:\n' + '\n'.join(cpr_onlydb))
-    print('The following cpr are only in HK database:\n' + '\n'.join(cpr_onlyhk))
+    cpr_hk = cpr_hk.difference(set(hk_ignore))
+    cpr_onlyhk = sorted(list(cpr_hk.difference(cpr_db)))
+    cpr_onlydb = sorted(list(cpr_db.difference(cpr_hk)))
+    if print_out:
+        print('The following cpr are only in NovoZymes database:\n' + '\n'.join(cpr_onlydb))
+        print('The following cpr are only in HK database:\n' + '\n'.join(cpr_onlyhk))
+    return cpr_onlydb, cpr_onlyhk
 
 
-def compare_maillist(database, medlem_bool, maillist):
+def compare_maillist(database, medlem_bool, maillist, print_out=True):
     """ Compare main database to email list """
     mails_db = set(database['Mailadresse'][medlem_bool].dropna().str.lower())
     mails_txt = set(maillist.dropna().str.lower())
-    mails_del = mails_txt.difference(mails_db)
-    mails_add = mails_db.difference(mails_txt)
-    print('The following mails can be deleted from outlook:\n' + '\n'.join(mails_del))
-    print('The following mails can be added to outlook:\n' + '\n'.join(mails_add))
+    mails_del = sorted(list(mails_txt.difference(mails_db)))
+    mails_add = sorted(list(mails_db.difference(mails_txt)))
+    if print_out:
+        print('The following mails can be deleted from outlook:\n' + '\n'.join(mails_del))
+        print('The following mails can be added to outlook:\n' + '\n'.join(mails_add))
+    return mails_del, mails_add
