@@ -3,11 +3,13 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5 import uic, QtCore
 import CompareFiles
 import os
+import sys
 
-Ui_MainWindow, QtMainBaseClass = uic.loadUiType('DatabaseComparerGui.ui')
-Ui_ListWindow, QtListBaseClass = uic.loadUiType('BlackListGui.ui')
-ignore_list_path_init = 'ignore_vilkar.txt'
-ignore_list_path_cpr = 'ignore_hk.txt'
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 
 class EmittingStream(QtCore.QObject):
@@ -152,7 +154,14 @@ class MyApp(QMainWindow):
         """ Append text to the QTextEdit """
         self.ui.textConsole.append(text)
 
+
+
 if __name__ == "__main__":
+    Ui_MainWindow, QtMainBaseClass = uic.loadUiType(resource_path('DatabaseComparerGui.ui'))
+    Ui_ListWindow, QtListBaseClass = uic.loadUiType(resource_path('BlackListGui.ui'))
+    ignore_list_path_init = 'ignore_vilkar.txt'
+    ignore_list_path_cpr = 'ignore_hk.txt'
+
     app = QApplication(sys.argv)
     window = MyApp()
     window.show()
@@ -164,5 +173,6 @@ if __name__ == "__main__":
 # Exe build instructions:
 # create -n py35 python=3.5
 # activate py35
-# conda install -c acellera -n py35 pyinstaller
-# pyinstaller --onefile --windowed --icon=database_refresh.ico yourprogram.py
+# conda install -c conda-forge -n py35 pyinstaller
+# pyi-makespec --onefile --windowed --icon=database_refresh.ico DatabaseComparer.py
+# pyinstaller DatabaseComparer.spec

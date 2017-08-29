@@ -58,7 +58,7 @@
      <string>Load database</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textDb">
+   <widget class="QTextBrowser" name="textDb">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -86,7 +86,7 @@
      <string>Load vilkar</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textVilkar">
+   <widget class="QTextBrowser" name="textVilkar">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -158,7 +158,7 @@
      <string>Compare cpr</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textHk">
+   <widget class="QTextBrowser" name="textHk">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -208,7 +208,7 @@
      <string>Compare emails</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEmails">
+   <widget class="QTextBrowser" name="textEmails">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -296,15 +296,17 @@
   <tabstop>loadVilkar</tabstop>
   <tabstop>loadHk</tabstop>
   <tabstop>loadEmails</tabstop>
-  <tabstop>textConsole</tabstop>
+  <tabstop>compareInit</tabstop>
+  <tabstop>compareCpr</tabstop>
+  <tabstop>compareEmails</tabstop>
+  <tabstop>blacklistInit</tabstop>
+  <tabstop>blacklistCpr</tabstop>
+  <tabstop>clearButton</tabstop>
   <tabstop>textDb</tabstop>
   <tabstop>textVilkar</tabstop>
   <tabstop>textHk</tabstop>
   <tabstop>textEmails</tabstop>
-  <tabstop>compareInit</tabstop>
-  <tabstop>compareCpr</tabstop>
-  <tabstop>compareEmails</tabstop>
-  <tabstop>clearButton</tabstop>
+  <tabstop>textConsole</tabstop>
  </tabstops>
  <resources/>
  <connections/>
