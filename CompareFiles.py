@@ -18,7 +18,7 @@ def read_db(database_path):
 
 def read_vilkar(vilkar_path):
     """ Read labktek excel file """
-    vilkar = pd.read_excel(vilkar_path, skiprows=4).dropna(axis=1, how='all')
+    vilkar = pd.read_excel(vilkar_path, skiprows=0).dropna(axis=1, how='all')
     return vilkar
 
 
@@ -55,7 +55,10 @@ def compare_vilkar(database, vilkar, vilkar_ignore, print_out=True):
 def compare_hk(database, hk, hk_ignore, print_out=True):
     """ Compare main database to HK database"""
     cpr_db = set(database['CPR-nummer'].dropna().str.zfill(10).str.replace('-', ''))
-    cpr_hk = set(hk['CPR'].dropna().str.replace('-', ''))
+    try:
+        cpr_hk = set(hk['CPR'].dropna().str.replace('-', ''))
+    except KeyError:
+        cpr_hk = set(hk['CPR (Person)'].dropna().str.replace('-', ''))
     cpr_hk = cpr_hk.difference(set(hk_ignore))
     cpr_onlyhk = sorted(list(cpr_hk.difference(cpr_db)))
     cpr_onlydb = sorted(list(cpr_db.difference(cpr_hk)))
