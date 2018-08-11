@@ -2,7 +2,7 @@
 
 block_cipher = None
 
-added_files = [('*.ui', '.')]
+added_files = [('*.ui', '.'), ('.\platforms', 'platforms')]
 
 a = Analysis(['DatabaseComparer.py'],
              pathex=['C:\\Users\\Anders\\PycharmProjects\\DatabaseChecker'],

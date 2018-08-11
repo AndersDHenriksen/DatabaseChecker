@@ -2,7 +2,7 @@
 
 block_cipher = None
 
-added_files = [('*.ui', '.')]
+added_files = [('*.ui', '.'), ('.\platforms\qwindows.dll', '.')]
 
 a = Analysis(['DatabaseComparer.py'],
              pathex=['C:\\Users\\Anders\\PycharmProjects\\DatabaseChecker'],
@@ -26,6 +26,5 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=True,
-          runtime_tmpdir=None,
           console=False,
           icon='database_refresh.ico')

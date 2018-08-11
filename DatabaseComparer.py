@@ -179,4 +179,5 @@ if __name__ == "__main__":
 # pyinstaller DatabaseComparer.spec
 # --More notes
 # I could not get "OneFile" to work
-# "OneDir" only work when i copied the platforms folder "C:\Anaconda3\Library\plugins\platforms" to the DatabaseComparer.exe folder
+# "OneDir" only because i copied the platforms folder "C:\Anaconda3\Library\plugins\platforms" to the DatabaseComparer.exe folder
+# More info that may get onefile to work: https://stackoverflow.com/questions/23446124/bundle-just-onefile
