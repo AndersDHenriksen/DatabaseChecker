@@ -171,8 +171,12 @@ if __name__ == "__main__":
 # conda prompt: designer
 #
 # Exe build instructions:
-# create -n py35 python=3.5
-# activate py35
-# conda install -c conda-forge -n py35 pyinstaller
-# pyi-makespec --onefile --windowed --icon=database_refresh.ico DatabaseComparer.py
+# --Install pyinstaller
+# conda install -c conda-forge pyinstaller
+# --Create spec file (already created)
+# pyi-makespec --onefile --windowed --icon=database_refresh.ico --hidden-import pandas._libs.tslibs.timedeltas DatabaseComparer.py #--add-data *.ui ?
+# --Build exe
 # pyinstaller DatabaseComparer.spec
+# --More notes
+# I could not get "OneFile" to work
+# "OneDir" only work when i copied the platforms folder "C:\Anaconda3\Library\plugins\platforms" to the DatabaseComparer.exe folder
